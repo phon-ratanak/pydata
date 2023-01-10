@@ -2,19 +2,19 @@ from typing import Union, List
 
 class Modeler:
     def __init__(self) -> None:
-        pass
+      pass
     
     """ 0D Primitive ============================================= """
     """ ========================================================== """
 
     def CreatePoint(
         self,
-        center: List[float] = [0, 0, 0],
+        points: List[float] = [0, 0, 0],
         size:  List[float] = [1, 1, 1],
         color: List[Union[int, str]] = "red",
         name: str = "Point"
     ):
-        print(name)
+        return name
 
 
     """ 1D Primitive ============================================= """

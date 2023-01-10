@@ -10,8 +10,11 @@ fdtd = FDTD(
     simulation_type="FDTD"
 )
 
-fdtd.modeler.CreatePoint()
-fdtd.modeler.CreateLine()
-fdtd.modeler.CreateRectangular()
-fdtd.modeler.CreateCircle()
+# fdtd.modeler.CreatePoint()
+# fdtd.modeler.CreatePoint()
+# fdtd.modeler.CreatePoint()
+# fdtd.modeler.CreateLine()
+# fdtd.modeler.CreateRectangular()
+# fdtd.
 
+# print(fdtd.list_0d_objects)
