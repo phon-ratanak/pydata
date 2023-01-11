@@ -6,10 +6,10 @@ class Modeler:
     def __init__(self) -> None:
         self.temp_directory = TempsDirectory().temp_path
         
-        self.temp_file_0d = "temp_0d_geometries"
-        self.temp_file_1d = "temp_1d_geometries"
-        self.temp_file_2d = "temp_2d_geometries"
-        self.temp_file_3d = "temp_3d_geometries"
+        self.temp_file_0d = "geometries_0d"
+        self.temp_file_1d = "geometries_1d"
+        self.temp_file_2d = "geometries_2d"
+        self.temp_file_3d = "geometries_3d"
 
         self.temp_list_0d = list()
         self.temp_list_1d = list()

@@ -1,4 +1,3 @@
-import os
 import shutil
 
 from .default import Directory, ProjectDirectory
@@ -27,11 +26,24 @@ class Desktop:
 
     
     def Validation(self):
+        """
+        This function validates the project directory and copies the files 
+        from the temp directory to the project's geometry directory.
+        """
         self.project_path = ProjectDirectory(
             project_path=self.project_path, 
             project_name=self.project_name        
         ).default_path
 
+        # Copy geometry data from temp to geometry directory.
+        shutil.copytree(
+            self.temp_directory,
+            self.project_path / self.project_name / "geometry", 
+            dirs_exist_ok=True
+        )
+        # Delete temp directory.
+        shutil.rmtree(self.temp_directory)
+    
         
     def Simulation(self):
         pass

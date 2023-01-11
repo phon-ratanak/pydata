@@ -8,14 +8,13 @@ from tqdm import tqdm
 
 fdtd = FDTD(
         simulation_type="FDTD",
-        project_name="PMaxwave",
+        project_name="PMaxwave2",
         # project_path="C:/Users/Ratanak/Documents/MaxWave/ere"
 )
-for i in tqdm(range(1000)):
-        fdtd.modeler.CreatePoint()
-        fdtd.modeler.CreateLine()
-        fdtd.modeler.CreateRectangular()
-        fdtd.modeler.CreateBox() 
+fdtd.modeler.CreatePoint(points=[1,1,1], name="Point1")
+fdtd.modeler.CreatePoint(points=[2.1,0.1,3], name="Point2")
+fdtd.modeler.CreateLine(points=[[1,1,1], [1,0,1]], name="Line1")
+fdtd.modeler.CreateLine(points=[[0,0,1], [0,0,1]], name="Line1")
 
 
 # print(fdtd.list_0d_objects)
