@@ -1,39 +1,40 @@
-import os, pathlib
+import os
+import shutil
+
+from .default import Directory, ProjectDirectory
 from .modelers import Modeler
+
 
 class Desktop:
     def __init__(
         self,
+        simulation_type: str = "FDTD",
         project_name: str = "PMaxwave",
-        simulation_type: str = "FDTD"
+        project_path: str = None
     ):
-
         self.project_name = project_name
-        self.create_directory()
+        self.simulation_type = simulation_type
 
-        self.list_0d_objects = []
-        self.list_1d_objects = []
-        self.list_2d_objects = []
-        self.list_3d_objects = []
-
-        self.modeler = Modeler()
+        if project_path is not None:
+            self.project_path = project_path 
+        else:
+            self.project_path = Directory().default_path
 
     
-    def create_directory(self):
-        """
-        Create the default directory for storing simulation datas.
+        self.modeler = Modeler()
+        self.temp_directory = self.modeler.temp_directory
+    
 
-        Returns:
-            List[pathlib.Path]: list of all the directories created
-        """
-        home = pathlib.Path.home()
-        simulation_path = home / "Documents" / "MaxWave" / self.project_name
-        dirs_to_create = [
-            simulation_path / "info",
-            simulation_path / "data",
-            simulation_path / "images",
-            simulation_path / "animations",
-            simulation_path / "geometries",
-        ]
-        [path.mkdir(parents=True, exist_ok=True) for path in dirs_to_create]
-        return dirs_to_create
+    
+    def Validation(self):
+        self.project_path = ProjectDirectory(
+            project_path=self.project_path, 
+            project_name=self.project_name        
+        ).project_path
+
+        
+    def Simulation(self):
+        pass
+
+    
+

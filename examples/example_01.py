@@ -6,15 +6,21 @@ sys.path.append(dirname(dirname(abspath(__file__))))
 from maxwave import FDTD
 
 fdtd = FDTD(
-    project_name="UnitCell", 
-    simulation_type="FDTD"
+        simulation_type="FDTD",
+        project_name="PMaxwave",
+        # project_path="C:/Users/Ratanak/Documents/MaxWave/ere"
 )
 
-# fdtd.modeler.CreatePoint()
-# fdtd.modeler.CreatePoint()
+fdtd.modeler.CreatePoint()
 # fdtd.modeler.CreatePoint()
 # fdtd.modeler.CreateLine()
 # fdtd.modeler.CreateRectangular()
 # fdtd.
 
 # print(fdtd.list_0d_objects)
+# fdtd.CreatePoint()
+
+
+fdtd.Validation()
+print(fdtd.project_path)
+# fdtd.Simulation()
