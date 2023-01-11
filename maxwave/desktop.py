@@ -30,7 +30,7 @@ class Desktop:
         self.project_path = ProjectDirectory(
             project_path=self.project_path, 
             project_name=self.project_name        
-        ).project_path
+        ).default_path
 
         
     def Simulation(self):

@@ -1,6 +1,6 @@
 import pathlib
-
 from datetime import datetime
+
 
 class Directory:
     def __init__(self):
@@ -13,13 +13,10 @@ class ProjectDirectory(Directory):
     def __init__(self, project_path=None, project_name=None):
         super().__init__()
 
-        if project_path is not None:
-            self.project_path = pathlib.Path(project_path)
-            create_directory(self.project_path)
-            create_directory(self.project_path / project_name)
+        sub_dir = ["data","geometry", "export"]
 
-        else:
-            create_directory(self.default_path / project_name)
+        self.project_path = self.default_path if project_path is None else pathlib.Path(project_path)
+        [create_directory(self.default_path / project_name / sb) for sb in sub_dir]
 
 
 class TempsDirectory(Directory):
@@ -32,4 +29,3 @@ class TempsDirectory(Directory):
 
 def create_directory(path: pathlib.Path):
     path.mkdir(parents=True, exist_ok=True)
-

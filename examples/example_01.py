@@ -4,23 +4,26 @@ sys.path.append(dirname(dirname(abspath(__file__))))
 
 # Import Library
 from maxwave import FDTD
+from tqdm import tqdm
 
 fdtd = FDTD(
         simulation_type="FDTD",
-        project_name="PMaxwave",
+        project_name="PMaxwave1",
         # project_path="C:/Users/Ratanak/Documents/MaxWave/ere"
 )
+for i in tqdm(range(100)):
+        fdtd.modeler.CreatePoint()
+        fdtd.modeler.CreateLine()
+        fdtd.modeler.CreateRectangular()
+        fdtd.modeler.CreateBox() 
 
-fdtd.modeler.CreatePoint()
-# fdtd.modeler.CreatePoint()
-# fdtd.modeler.CreateLine()
-# fdtd.modeler.CreateRectangular()
-# fdtd.
 
 # print(fdtd.list_0d_objects)
 # fdtd.CreatePoint()
 
 
 fdtd.Validation()
-print(fdtd.project_path)
+# print(fdtd.project_path)
 # fdtd.Simulation()
+
+
