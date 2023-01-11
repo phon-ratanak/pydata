@@ -4,26 +4,9 @@ sys.path.append(dirname(dirname(abspath(__file__))))
 
 # Import Library
 import pytest
-import json, string, random
-from maxwave import Modeler
-
-""" Function ==============="""
-def read_json(path):
-    with open(path, 'r') as f:
-        return json.load(f)
-
-
 import random
-
-alphabets = [chr(i) for i in range(ord('a'), ord('z')+1)]
-
-
-def random_name(length = 10):
-    return ''.join(random.choices(string.ascii_letters + string.digits, k=length))
-
-def random_coor():
-    return [random.random() for _ in range(random.randint(1, 3))]
-""" ======================= """
+from maxwave.utils import random_coordinate, random_name, read_json
+from maxwave import Modeler
 
 
 modeler = Modeler()
@@ -35,19 +18,34 @@ temp_file_1d = modeler.temp_file_1d
 temp_file_2d = modeler.temp_file_2d
 temp_file_3d = modeler.temp_file_3d
 
-point_0d_test = [(i, random_name(), random_coor()) for i in range(100)]
-print(point_0d_test)
+""" Test for 0D ========================================================= """
+""" ===================================================================== """
+point_0d_test = [(i, random_name(), random_coordinate()) for i in range(20)]
 @pytest.mark.parametrize("index, name, points", point_0d_test)
 def test_modeler_0d(index, name, points):
     modeler.CreatePoint(points=points, name=name)
 
-    file_path = str(temp_directory/temp_file_0d) + ".json"
+    file_path = str(temp_directory / temp_file_0d) + ".json"
     data = read_json(file_path)
 
     assert data[index]["name"] == name
     assert data[index]["points"] == points
 
 
-# test_modeler()
+""" Test for 1D ========================================================= """
+""" ===================================================================== """
+point_1d_line_test = [(i, random_name(), random_coordinate(random.randint(1, 10))) for i in range(20)]
+@pytest.mark.parametrize("index, name, points", point_1d_line_test)
+def test_modeler_1d(index, name, points):
+    modeler.CreateLine(points=points, name=name)
+
+    file_path = str(temp_directory/temp_file_1d) + ".json"
+    data = read_json(file_path)
+
+    assert data[index]["name"] == name
+    assert data[index]["points"] == points
+
+
+
 
 

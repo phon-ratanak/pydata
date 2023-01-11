@@ -23,11 +23,8 @@ class Modeler:
         self,
         points: List[float],
         name: str = "Point"
-    ):
-        parameters= {
-            "name": name,
-            "points": points,
-        }
+    ): 
+        parameters= {"name": name, "points": points}
         
         self.save_geometry(data=parameters, file_name=self.temp_file_0d)
         return name
@@ -38,32 +35,13 @@ class Modeler:
 
     def CreateLine(
         self,
-        points: List[float] = [[0, 0, 0], [1, 1, 1]],
+        points: List[float],
         name: str = "Line"
     ):
-        parameters= {
-            "name": name,
-            "points": points,
-        }
+        parameters= {"name": name, "points": points}
         
-        # print(self.l)
         self.save_geometry(data=parameters, file_name=self.temp_file_1d)
         return name
-    
-    def CreatePolyLine(
-        self,
-        points: List[float] = [[0, 0, 0], [1, 1, 1]],
-        name: str = "Line"
-    ):
-        parameters= {
-            "name": name,
-            "points": points,
-        }
-        
-        # print(self.l)
-        self.save_geometry(data=parameters, file_name=self.temp_file_1d)
-        return name
-    
     
     """ 2D Primitive ============================================= """
     """ ========================================================== """
@@ -74,11 +52,7 @@ class Modeler:
         size:  List[float] = [1, 1, 1],
         name: str = "Rectangular"
     ):
-        parameters = {
-            "name": name,
-            "center": center,
-            "size": size
-        }
+        parameters = {"name": name, "center": center, "size": size}
         
         self.save_geometry(data=parameters, file_name=self.temp_file_2d)
         return name
@@ -89,11 +63,7 @@ class Modeler:
         radius: Union[float, str] = 1,
         name: str = "Circle"
     ):
-        parameters= {
-            "name": name,
-            "center": center,
-            "radius": radius,
-        }
+        parameters= {"name": name, "center": center, "radius": radius}
         
         self.save_geometry(data=parameters, file_name=self.temp_file_2d)
         return name
@@ -104,11 +74,7 @@ class Modeler:
         semi_axes: Union[float, str] = 1,
         name: str = "Ellipse"
     ):
-        parameters= {
-            "name": name,
-            "center": center,
-            "semi_axes": semi_axes,
-        }
+        parameters= {"name": name, "center": center, "semi_axes": semi_axes}
         
         self.save_geometry(data=parameters, file_name=self.temp_file_2d)
         return name
@@ -122,14 +88,11 @@ class Modeler:
         size:  List[float] = [1, 1, 1],
         name: str = "Box"
     ):
-        parameters = {
-            "name": name,
-            "center": center,
-            "size": size
-        }
+        parameters = {"name": name, "center": center, "size": size}
 
         self.save_geometry(data=parameters, file_name=self.temp_file_3d)
         return name
+
 
     """ Additional Function """
     def save_geometry(self, data, file_name):
