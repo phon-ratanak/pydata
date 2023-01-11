@@ -8,10 +8,10 @@ from tqdm import tqdm
 
 fdtd = FDTD(
         simulation_type="FDTD",
-        project_name="PMaxwave1",
+        project_name="PMaxwave",
         # project_path="C:/Users/Ratanak/Documents/MaxWave/ere"
 )
-for i in tqdm(range(100)):
+for i in tqdm(range(1000)):
         fdtd.modeler.CreatePoint()
         fdtd.modeler.CreateLine()
         fdtd.modeler.CreateRectangular()

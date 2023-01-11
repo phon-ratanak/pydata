@@ -21,14 +21,12 @@ class Modeler:
 
     def CreatePoint(
         self,
-        points: str = [0, 0, 0],
-        size:  str = [1, 1, 1],
+        points: List[float],
         name: str = "Point"
     ):
         parameters= {
             "name": name,
             "points": points,
-            "size": size,
         }
         
         self.save_geometry(data=parameters, file_name=self.temp_file_0d)
