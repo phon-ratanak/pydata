@@ -1,6 +1,6 @@
 import sys
 from os.path import dirname, abspath
-sys.path.append(dirname(dirname(abspath(__file__))))
+sys.path.append(dirname(dirname(dirname(abspath(__file__)))))
 
 # Import Library
 import pytest

@@ -17,9 +17,6 @@ fdtd.modeler.CreateLine(points=[[1,1,1], [1,0,1]], name="Line1")
 fdtd.modeler.CreateLine(points=[[0,0,1], [0,0,1]], name="Line1")
 
 
-# print(fdtd.list_0d_objects)
-# fdtd.CreatePoint()
-
 
 fdtd.Validation()
 # print(fdtd.project_path)
