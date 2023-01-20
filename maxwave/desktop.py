@@ -24,7 +24,7 @@ class Desktop:
 
     def Validation(self):
         """
-        This function validates the project directory and copies the files 
+        This function validates the project directory and copies the files
         from the temp directory to the project's geometry directory.
         """
         self.project_path = ProjectDirectory(
